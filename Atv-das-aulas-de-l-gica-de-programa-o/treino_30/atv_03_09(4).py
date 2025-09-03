@@ -47,7 +47,7 @@ elif forma_pg == "2":
             print(f"6x de R$ {parcela: .2f}")
         
         case _: 
-            print ("Fim")
+            print ("opção inválida")
 
         
 
