@@ -4,7 +4,7 @@ os.system("cls")
 Nota_1= float(input(f"Digite a primeira nota: "))
 Nota_2= float(input(f"Digite a segunda nota: "))
 
-media =  (Nota_1 + Nota_2) / 2 # calcular media
+media =  (Nota_1 + Nota_2) / 2 # calcular mediag 
 
 soma = Nota_1 + Nota_2
 
