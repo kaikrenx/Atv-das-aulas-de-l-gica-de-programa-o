@@ -14,7 +14,6 @@ while True:
     
     if numeros > 0: 
         qntd += 1
-
         if numeros % 2 == 0:  
             qntd_par += 1
             pares = pares + 1
