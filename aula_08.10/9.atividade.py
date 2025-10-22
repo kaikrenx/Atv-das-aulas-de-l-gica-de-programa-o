@@ -2,7 +2,7 @@ import os
 os.system("cls")
 
 def  CAL_IMC(peso, altura):
-    
+    os.system("cls")
     return peso / (altura * altura)
 
 print("=== Programa pra saber o (IMC)===")
