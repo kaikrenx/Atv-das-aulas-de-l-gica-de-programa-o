@@ -15,7 +15,7 @@ class Pet:
     nome: str
     idade: int
     peso: float
-
+x   
 # Exemplo de uso da classe 
 pessoa1 = Pessoa(nome="Alice",idade= 30,cpf= "234.452.222-22")
 pet1 = Pet(nome="Totó",idade= 4, peso=2.100)
