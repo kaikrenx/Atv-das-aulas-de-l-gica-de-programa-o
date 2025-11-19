@@ -30,7 +30,7 @@ for i in range(QUANTIDADE_DE_PACIENTES):
     print()
 
 nome_do_arquivo = "dados_paciente.csv"
-with open(nome_do_arquivo, "a") as arquivo_pacientes:
+with open(nome_do_arquivo, "a", encoding="uft-8") as arquivo_pacientes:
     for paciente in lista_pacientes:
         arquivo_pacientes.write(f"{paciente.nome}, {paciente.idade}, {paciente.peso}, {paciente.altura}, {paciente.cpf}\n")
         print()
@@ -42,14 +42,17 @@ with open(nome_do_arquivo, "a") as arquivo_pacientes:
 #     paciente.exibir_dados()
 
 print("\Exibindo todos os pacientes: ")
+lista = []
 try:
     # "r" - Read - leitura
-    with open(nome_do_arquivo, "r") as arquivo:
+    with open(nome_do_arquivo, "r", encoding="uft-8") as arquivo:
         lista_todos_pacientes = arquivo.readlines()
         for paciente in lista_todos_pacientes: 
-            print(f"- {paciente.strip{}}")
-             # linhas = arquivo.readlines()
-        # for linha in linhas:
-        #     print(f"- {linhas.strip()}")
+            nome, idade, peso, altura, cpf = paciente.strip().split(",")
+            dados_paciente = Paciente(nome=nome, idade=int(idade), peso=float(peso), altura=float(altura), cpf=float(cpf))
+            lista.append(dados_paciente)
+    for paciente in lista:
+        paciente.exibir_dados()
 except FileNotFoundError:
+
     print("Erro, arquivo não encontrado")
