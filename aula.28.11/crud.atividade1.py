@@ -38,14 +38,14 @@ def adicionar_cliente(lista_clientes):
 
     novo_cliente = Cliente(nome=nome, email=email,telefone=telefone)
     lista_clientes.append(novo_cliente)
-    print(f"\n Cliente {nome} adicionado com sucesso")
+    print(f"\n Cliente {email} adicionado com sucesso")
 
     # Função para encontrar um cliente na lista. 
 
-def encontrar_cliente_por_nome(lista_clientes, nome_buscar):
-    nome_buscar_Lower = nome_buscar.lower()
+def encontrar_cliente_por_email(lista_clientes, email_buscar):
+    email_buscar_Lower = email_buscar.lower()
     for cliente in lista_clientes:
-        if cliente.nome.lower() == nome_buscar_Lower:
+        if cliente.email.lower() == email_buscar_Lower:
             return cliente
     return None # None sigifica retornar vzoo sem conteúdo.
 
@@ -60,42 +60,42 @@ def mostrar_todos_clientes(lista_clientes):
 
 
 def atualizar_clientes(lista_clientes):
-        if lista_esta_vazia(lista_clientes):
+    if lista_esta_vazia(lista_clientes):
             return
         
 
     # Mostrar a lista de cliente para ajudar o usuario.
 
-        mostrar_todos_clientes(lista_clientes)
-        print("--- Atualizar dados do cliente --- ")
-        nome_buscar = input("\n Digite o nome do cliente: ")
-        cliente_para_atualizar = encontrar_cliente_por_nome(lista_clientes, nome_buscar)
+    mostrar_todos_clientes(lista_clientes)
+    print("--- Atualizar dados do cliente --- ")
+    email_buscar = input("\n Digite o email do cliente: ")
+    cliente_para_atualizar = encontrar_cliente_por_email(lista_clientes, email_buscar)
 
-        if cliente_para_atualizar:
-            print("\n Pessoa encontrada.")
-            print("\nDigite os novos dados ou deixe em branco para manter o valor atual.")
+    if cliente_para_atualizar:
+        print("\n Pessoa encontrada.")
+        print("\nDigite os novos dados ou deixe em branco para manter o valor atual.")
 
 
-            print(f"\nNome atual: {cliente_para_atualizar.nome}")
-            novo_nome = input("Novo nome: ")
+        print(f"\nNome atual: {cliente_para_atualizar.nome}")
+        novo_nome = input("Novo nome: ")
 
-            print(f"\nE-mail atual: {cliente_para_atualizar.email}")
-            novo_email = input("Novo e-mail: ")
+        print(f"\nE-mail atual: {cliente_para_atualizar.email}")
+        novo_email = input("Novo e-mail: ")
 
-            print(f"\nTelefone atual: {cliente_para_atualizar.telefone}")
-            novo_telefone = input("Novo telefone: ")
+        print(f"\nTelefone atual: {cliente_para_atualizar.telefone}")
+        novo_telefone = input("Novo telefone: ")
 
-            if novo_nome:
-                cliente_para_atualizar.nome = novo_nome
-            if novo_email:
-                cliente_para_atualizar.email = novo_email
+        if novo_nome:
+            cliente_para_atualizar.nome = novo_nome
+        if novo_email:
+            cliente_para_atualizar.email = novo_email
 
-            if novo_telefone:
-                cliente_para_atualizar.telefone = novo_telefone
+        if novo_telefone:
+            cliente_para_atualizar.telefone = novo_telefone
 
-            print(f"\nDados do cliente: {nome_buscar} atualizados com sucesso!")
-        else:
-            print(f"\nCliente com nome: {nome_buscar} não encontrado")
+        print(f"\nDados do cliente: {email_buscar} atualizados com sucesso!")
+    else:
+        print(f"\nCliente com e-mail: {email_buscar} não encontrado")
 
 # função para excluir um cliente.
 def excluir_cliente(lista_clientes):
@@ -104,15 +104,15 @@ def excluir_cliente(lista_clientes):
     
     mostrar_todos_clientes(lista_clientes)
 
-    nome_buscar = input("\nDigite o nome do cliente que deseja excluir: ")
+    email_buscar = input("\nDigite o nome do cliente que deseja excluir: ")
 
-    cliente_para_remover = encontrar_cliente_por_nome(lista_clientes, nome_buscar)
+    cliente_para_remover = encontrar_cliente_por_email(lista_clientes, email_buscar)
 
     if cliente_para_remover:
         lista_clientes.remove(cliente_para_remover)
-        print(f"\n Cliente com o nome {nome_buscar} não encontrado")
+        print(f"\n Cliente com o E-mail {email_buscar} encontrado!")
     else:
-        print(f"\nCliente com o nome {nome_buscar} não encontrado.")
+        print(f"\nCliente com o E-mail {email_buscar} não encontrado.")
 
 # Mostrando menu.
 while True:
@@ -128,7 +128,7 @@ while True:
           
 """)
     
-        opcao = int(input("Digite uma das opções acima: "))
+    
         try: 
             opcao = int(input("Digite uma das opções acima: "))
         except ValueError:
