@@ -76,12 +76,12 @@ def atualizar_clientes(lista_clientes):
        
        
         
-        print('E-mail atual: {cliente_para_atualizar.email}')
+        print(f'E-mail atual: {cliente_para_atualizar.email}')
         novo_email=input(f'Novo email:')
-        print('Nome atual: {cliente_para_atualizar.nome}')
+        print(f'Nome atual: {cliente_para_atualizar.nome}')
         novo_nome=input(f'Novo nome: ')
-        print('Telefone atual: {cliente_para_atualizar.telefone}')
-        novo_telefone=input(f'Novo telefone:')
+        print(f'Telefone atual: {cliente_para_atualizar.telefone}')
+        novo_telefone=input('Novo telefone: ')
 
         if novo_nome:
             cliente_para_atualizar.nome= novo_nome

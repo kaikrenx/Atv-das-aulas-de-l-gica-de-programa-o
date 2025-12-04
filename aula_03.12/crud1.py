@@ -2,7 +2,7 @@ import os
 import time
 from dataclasses import dataclass
 
-os.system('cls || clear')  # Limpar terminal
+os.system('cls') 
 
 lista_alunos = []
 
@@ -19,7 +19,7 @@ class Aluno:
     nascimento: str
     r_a: str
     curso: str
-    endereco: Endereço  # O tipo aqui é a classe Endereço
+    endereco: Endereço  
 
     def mostrar_dados(self):
         print(f'\nNome: {self.nome}')
@@ -30,46 +30,41 @@ class Aluno:
         print(f'Logradouro: {self.endereco.logradouro}, Nº {self.endereco.numero}')
         print(f'Cidade: {self.endereco.cidade} - {self.endereco.estado}')
 
-# Verificar se a lista está vazia
 def lista_esta_vazia(lista_alunos):
     if not lista_alunos:
         print('\nNão há alunos cadastrados.')
         return True
     return False
 
-# Adicionar Aluno
 def adicionar_aluno(lista_alunos):
     print('\n--------- Adicionar novo Aluno ---------')
-    # Dados pessoais
+   
     nome = input('Nome: ')
     nascimento = input('Data de Nascimento: ')
     r_a = input('R.A: ')
     curso = input('Curso: ')
     
-    # Dados de endereço
     print('--- Dados do Endereço ---')
     logradouro = input('Logradouro: ')
     numero = input('Número: ')
     cidade = input('Cidade: ')
     estado = input('Estado: ')
 
-    # Criando o objeto Endereço primeiro
+   
     novo_endereco = Endereço(logradouro, numero, cidade, estado)
     
-    # Criando o objeto Aluno com o endereço incluso
     novo_aluno = Aluno(nome, nascimento, r_a, curso, novo_endereco)
     
     lista_alunos.append(novo_aluno)
     print(f'\nAluno {nome} adicionado com sucesso!')
 
-# Encontrar aluno por R.A (Identificador único)
+
 def encontrar_por_ra(lista_alunos, ra_buscar):
     for aluno in lista_alunos:
         if aluno.r_a.lower() == ra_buscar.lower():
             return aluno
     return None
 
-# Mostrar todos os alunos
 def mostrar_todos_alunos(lista_alunos):
     if lista_esta_vazia(lista_alunos):
         return
@@ -78,7 +73,7 @@ def mostrar_todos_alunos(lista_alunos):
     for aluno in lista_alunos:
         aluno.mostrar_dados()
 
-# Atualizar aluno
+
 def atualizar_aluno(lista_alunos):
     if lista_esta_vazia(lista_alunos):
         return
@@ -92,7 +87,7 @@ def atualizar_aluno(lista_alunos):
     if aluno:
         print('\nAluno encontrado. Deixe em branco para manter o valor atual.\n')
 
-        # Atualizar dados pessoais
+       
         print(f'Nome atual: {aluno.nome}')
         novo_nome = input('Novo nome: ')
         
@@ -102,7 +97,7 @@ def atualizar_aluno(lista_alunos):
         print(f'Curso atual: {aluno.curso}')
         novo_curso = input('Novo curso: ')
 
-        # Atualizar dados de endereço (acessando o sub-objeto)
+     
         print(f'Logradouro atual: {aluno.endereco.logradouro}')
         novo_logradouro = input('Novo logradouro: ')
 
@@ -115,12 +110,10 @@ def atualizar_aluno(lista_alunos):
         print(f'Estado atual: {aluno.endereco.estado}')
         novo_estado = input('Novo estado: ')
 
-        # Aplicando as alterações se o usuário digitou algo
         if novo_nome: aluno.nome = novo_nome
         if novo_nascimento: aluno.nascimento = novo_nascimento
         if novo_curso: aluno.curso = novo_curso
         
-        # Atualizando endereço
         if novo_logradouro: aluno.endereco.logradouro = novo_logradouro
         if novo_numero: aluno.endereco.numero = novo_numero
         if nova_cidade: aluno.endereco.cidade = nova_cidade
@@ -147,7 +140,6 @@ def excluir_aluno(lista_alunos):
     else:
         print('\nAluno não encontrado.')
 
-# MENU PRINCIPAL
 while True:
     print("""
 ---- Gerenciador de Alunos ----
@@ -163,7 +155,7 @@ while True:
     except ValueError:
         print('\nEntrada inválida. Digite um número.')
         time.sleep(2)
-        os.system('cls || clear')
+        os.system('cls')
         continue
 
     match opcao:
@@ -183,4 +175,4 @@ while True:
 
     if opcao != 0:
         time.sleep(2)
-        os.system('cls || clear')
+        os.system('cls')
